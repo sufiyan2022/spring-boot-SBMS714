@@ -1,0 +1,40 @@
+#using yml
+emp: 
+   info: 
+   #simple properties 
+    name: Abu
+    id: 1001
+   
+# array
+    nick-name: 
+     - kanna
+     - Munna
+     - chinna
+    
+    #List properties
+    team-member:
+    - ravi
+    - sufi
+    - ravi
+    
+    #Set properties
+    phone-numbers:
+    - 9999999999
+    - 8888888888
+    - 7777777777
+   
+   #Map properties
+    id-details:
+     adharNo: 777867679999
+     panNo: aasdfkf09u
+     voterId: 98809008980
+   
+   #HAS-A property
+    comp-details:
+     title: HCL Technologies
+     location: Blore
+     size: 200
+    
+      
+    
+     
