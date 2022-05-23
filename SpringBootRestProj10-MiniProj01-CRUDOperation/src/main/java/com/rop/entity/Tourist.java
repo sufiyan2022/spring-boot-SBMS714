@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 public class Tourist implements Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)  //hibernate_sequence will be created automatically
 	private Integer tid;
 	
 	@Column(length=20)
