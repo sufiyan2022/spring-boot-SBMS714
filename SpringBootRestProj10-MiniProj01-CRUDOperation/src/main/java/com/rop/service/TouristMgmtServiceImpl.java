@@ -36,9 +36,15 @@ public class TouristMgmtServiceImpl implements ITouristMgmtService {
 	}
 
 	@Override
-	public String updateTouristDetails(Tourist tourist) {
-		// TODO Auto-generated method stub
-		return null;
+	public String updateTouristDetails(Tourist tourist) throws TouristNotFoundException {
+		Optional<Tourist> opt=touristRepo.findById(tourist.getTid());
+		if(opt.isPresent()) {
+			touristRepo.save(tourist);
+			return tourist.getTid()+ " Tourist is Updated";
+		}else {
+			throw new TouristNotFoundException(tourist.getTid()+" Tourist Not Found");
+		}
+		
 	}
 
 	@Override
