@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rop.entity.Tourist;
+import com.rop.repo.ITouristRepo;
 import com.rop.service.ITouristMgmtService;
 
 @RestController
@@ -78,5 +80,18 @@ public class TouristOperationsController {
 					e.printStackTrace();
 					return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
 				}
+			}
+			
+			@PatchMapping("/budgetUpdate/{id}/{hike}")
+			public ResponseEntity<String> ModifyTouristBudgetById(@PathVariable("id")Integer id,@PathVariable("hike")Float hikePercentage){
+				try {
+					//use serivce
+					String msg=touristService.updateTouristBudgetById(id, hikePercentage);
+					return new ResponseEntity<String>(msg,HttpStatus.OK);
+				}catch(Exception e) {
+					e.printStackTrace();
+					return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+				}
+				
 			}
 }

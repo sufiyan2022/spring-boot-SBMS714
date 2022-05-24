@@ -12,6 +12,6 @@ public interface ITouristMgmtService {
 	public Tourist fetchTouristById(Integer tid) throws TouristNotFoundException;
 	public String updateTouristDetails(Tourist tourist) throws TouristNotFoundException;
 	public String deleteTourist(Integer tid) throws TouristNotFoundException;
-	public String updateTouristBudgetById(Integer id, Float hikePercent);
+	public String updateTouristBudgetById(Integer id, Float hikePercent) throws TouristNotFoundException;
 
 }
