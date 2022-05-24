@@ -15,42 +15,47 @@ public class TouristMgmtServiceImpl implements ITouristMgmtService {
 
 	@Autowired
 	private ITouristRepo touristRepo;
-	
+
 	@Override
 	public String registerTourist(Tourist tourist) {
-		int id=touristRepo.save(tourist).getTid();
-		return "Tourist is registered with id :"+id;
+		int id = touristRepo.save(tourist).getTid();
+		return "Tourist is registered with id :" + id;
 	}
 
 	@Override
 	public List<Tourist> fetchAllTourists() {
-		List<Tourist> list= touristRepo.findAll();
-		list.sort((t1,t2)->t1.getTid().compareTo(t2.getTid()));
+		List<Tourist> list = touristRepo.findAll();
+		list.sort((t1, t2) -> t1.getTid().compareTo(t2.getTid()));
 		return list;
 	}
 
 	@Override
 	public Tourist fetchTouristById(Integer tid) throws TouristNotFoundException {
-		Tourist tou=touristRepo.findById(tid).orElseThrow(()->new TouristNotFoundException(tid+" tourist not found"));
+		Tourist tou = touristRepo.findById(tid)
+				.orElseThrow(() -> new TouristNotFoundException(tid + " tourist not found"));
 		return tou;
 	}
 
 	@Override
 	public String updateTouristDetails(Tourist tourist) throws TouristNotFoundException {
-		Optional<Tourist> opt=touristRepo.findById(tourist.getTid());
-		if(opt.isPresent()) {
+		Optional<Tourist> opt = touristRepo.findById(tourist.getTid());
+		if (opt.isPresent()) {
 			touristRepo.save(tourist);
-			return tourist.getTid()+ " Tourist is Updated";
-		}else {
-			throw new TouristNotFoundException(tourist.getTid()+" Tourist Not Found");
+			return tourist.getTid() + " Tourist is Updated";
+		} else {
+			throw new TouristNotFoundException(tourist.getTid() + " Tourist Not Found");
 		}
-		
+
 	}
 
 	@Override
-	public String deleteTourist(Integer tid) {
-		// TODO Auto-generated method stub
-		return null;
+	public String deleteTourist(Integer tid) throws TouristNotFoundException {
+		Optional<Tourist> opt = touristRepo.findById(tid);
+		if (opt.isPresent()) {
+			touristRepo.deleteById(tid);
+			return tid + " Tourist is deleted.";
+		}
+		throw new TouristNotFoundException(tid + " Tourist not found.");
 	}
 
 	@Override
