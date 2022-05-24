@@ -91,6 +91,7 @@ public class TouristOperationsController {
 				}catch(Exception e) {
 					e.printStackTrace();
 					return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+//					return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_MODIFIED);
 				}
 				
 			}
