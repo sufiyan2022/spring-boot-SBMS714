@@ -27,7 +27,8 @@ public class ActorServiceConsumingRunner_Posting_JSONData implements CommandLine
 		HttpHeaders headers=new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		
-//		Prepare HttpRequest as HttpEntity object having head,body
+//		Prepare HttpRequest as HttpEntity object having head,body 
+//		(Represents an HTTP request or response entity, consisting of headers and body)
 		HttpEntity<String> request=new HttpEntity<String>(json_body, headers);
 		
 //		make httpRequest call in post mode

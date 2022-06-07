@@ -19,7 +19,7 @@ public class ActorServiceConsumingRunner_PathVariables implements CommandLineRun
 		
 		
 
-//		Generate http request call with GET mode to cunsume the web service(API)
+//		Generate http request call with GET mode to consume the web service(API)
 //		ResponseEntity<String> response=template.getForEntity(serviceUrl, String.class,"1001","abu");
 //		pass as Map
 		ResponseEntity<String> response=template.getForEntity(serviceUrl, String.class,Map.of("id", "1001", "name", "Mahad"));
