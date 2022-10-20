@@ -2,6 +2,7 @@ package com.rop.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,20 +15,20 @@ import com.rop.model.Actor;
 @RequestMapping("/actor")
 public class ActorOperationsController {
 
-//	@GetMapping("/wish")
-//	public ResponseEntity<String> displayWishMessage(){
-//		return new ResponseEntity<String>("Good Morning",HttpStatus.OK);
-//	}
-	
-//	@GetMapping("/wish/{id}/{name}")
-//	public ResponseEntity<String> displayWishMessage(@PathVariable Integer id,
-//																								@PathVariable String name){
-//		return new ResponseEntity<String>("Good Morning::"+id+"........."+name,HttpStatus.OK);
-//	}
-	
-	@PostMapping("/register")
-	public ResponseEntity<String> registerActor(@RequestBody Actor actor){
-		return new ResponseEntity<String>("Actor Data : "+actor.toString(),HttpStatus.OK);
+	@GetMapping("/wish")
+	public ResponseEntity<String> displayWishMessage(){
+		return new ResponseEntity<String>("Good Morning",HttpStatus.OK);
 	}
+	
+	@GetMapping("/wish/{id}/{name}")
+	public ResponseEntity<String> displayWishMessage(@PathVariable Integer id,
+																								@PathVariable String name){
+		return new ResponseEntity<String>("Good Morning::"+id+"........."+name,HttpStatus.OK);
+	}
+	
+//	@PostMapping("/register")
+//	public ResponseEntity<String> registerActor(@RequestBody Actor actor){
+//		return new ResponseEntity<String>("Actor Data : "+actor.toString(),HttpStatus.OK);
+//	}
 	
 }

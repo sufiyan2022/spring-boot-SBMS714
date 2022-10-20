@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-@Component
+//@Component
 public class ActorServiceConsumingRunner_Posting_JSONData implements CommandLineRunner {
 
 	@Override
@@ -32,7 +32,7 @@ public class ActorServiceConsumingRunner_Posting_JSONData implements CommandLine
 		HttpEntity<String> request=new HttpEntity<String>(json_body, headers);
 		
 //		make httpRequest call in post mode
-		ResponseEntity<String> response=template.postForEntity(serviceUrl,request, String.class);// (url,request,output type)
+		ResponseEntity<String> response=template.postForEntity(serviceUrl,request, String.class);// (url,request,output type/response body type)
 		
 //		display the received details from the response
 		System.out.println("Response body(output) :"+response.getBody());

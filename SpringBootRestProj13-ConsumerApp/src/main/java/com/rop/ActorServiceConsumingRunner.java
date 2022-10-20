@@ -15,12 +15,15 @@ public class ActorServiceConsumingRunner implements CommandLineRunner {
 //		Define Service Url
 		String serviceUrl="http://localhost:8080/actor/wish";
 //		Prepare http request headers
-//		Generate http request call with GET mode to cunsume the web service(API)
+		
+//		Generate http request call with GET mode to consume the web service(API)
 		ResponseEntity<String> response=template.getForEntity(serviceUrl, String.class);
+		
 //		display the received details from the response
 		System.out.println("Response body(output) :"+response.getBody());
 		System.out.println("Response status code value :"+response.getStatusCodeValue());
 		System.out.println("Response status code ::"+response.getStatusCode().name());
+		System.out.println("Headers : "+response.getHeaders());
 		
 //		System.exit(0);
 	}
